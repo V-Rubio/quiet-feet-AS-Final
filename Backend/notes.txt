@@ -1,0 +1,7 @@
+npm init -y 
+
+npm i express mongoose mongodb cors
+
+create index file - touch index.js 
+
+nodemon index.js (in this case nodemon mongo.js)
