@@ -144,6 +144,7 @@ function Home() {
           </div>
 
           <div className="dashboardLinks blackLink" id="contactsDL">
+            {/* State sends variables to that link */}
             <Link to="/tech-contacts" state={{name:location.state.firstName, email: location.state.email}}>Contacts</Link>
           </div>
         </div>
@@ -203,6 +204,7 @@ function Home() {
                 <tr key={index}>
                   <td>{data[index][index][1]} </td>
                   <td>
+                    {/* State sends variables to that link */}
                     <Link to="/accounts" state={{ name: location.state.firstName, email: location.state.email, subEmail: data[index][index][0], acctDesc: data[index][index][1] }}>
                       {/* onClick={sendUserInfo} */}
                       {data[index][index][0]}

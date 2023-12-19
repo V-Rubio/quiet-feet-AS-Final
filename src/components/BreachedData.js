@@ -79,6 +79,7 @@ const BreachedData = () => {
             <tr>
               <th>Email: </th>
               <th>
+                {/* State sends variables to that link */}
               <div className="blackLink"><Link to={'/accounts'} state={{ name: location.state.name, email: location.state.email, subEmail: location.state.subEmail, acctDesc: location.state.acctDesc }}>{location.state.subEmail}</Link></div>
               </th>
               <th></th>

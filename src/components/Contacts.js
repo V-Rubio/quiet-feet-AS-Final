@@ -158,6 +158,7 @@ const Contacts = () => {
               <div></div>
               </th>
               <th></th>
+              {/* State sends variables to that link */}
               <th className="blackLink"><Link to={'/home'} state={{firstName: location.state.name, email: location.state.email}}>Return Home</Link></th>
               <th></th>
 
@@ -170,6 +171,8 @@ const Contacts = () => {
                   <th>Stock Symbol</th>
                 </tr>
               </thead>
+
+              {/* Mapping the Contacts based on the parsed file */}
               <tbody>
                 {data.map((item, index) => (
                   <tr key={index}>

@@ -81,7 +81,7 @@ function Login() {
           </div>
         </div>
       </div>
-      <div className="signInForm">
+      <div className="largeMarginLeft largeMarginTop">
         <div className="smallMarginTop">
           <div id="siText">
             <h1> Sign In</h1>
