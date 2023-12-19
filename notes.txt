@@ -22,3 +22,5 @@ try{
             console.log(e);
 
         }
+
+choose file react - <CSVReader onFileLoaded={(data, fileInfo, originalFile) => console.dir(data, fileInfo, originalFile)} />

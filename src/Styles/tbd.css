@@ -1,0 +1,32 @@
+#UMText {
+    font-size: 65px;
+    width: 80rem;
+    margin: 0 5rem;
+    font-weight: 900;
+    color: black;
+    padding: 5rem;
+}
+
+
+p#issuesText {
+    font-size: 20px;
+    margin: 0 20rem ;
+    font-weight: 300;
+    width: 50rem;
+    color: #374151;
+}
+
+.TBD_General {
+    margin-left: 5rem;
+}
+
+button.TBD_General {
+    border-radius:30rem;
+    /* Not working */
+}
+
+.TBD_Container {
+    background-color:#ffffff;
+    height: 100vh;
+    width: 100vw;
+}

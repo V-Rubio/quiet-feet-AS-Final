@@ -1,0 +1,30 @@
+#contactsItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin-top: 2rem;
+}
+
+.home-logo {
+    font-size: 35px;
+    color: #003049;
+    font-weight: 600;
+    text-align: left;
+    margin-left: 2vw;
+    margin-top: 2vh;
+    text-decoration: none;
+}
+
+.home-logo:hover {
+    color: #003049;
+    text-decoration: none;
+}
+
+.removeLinkLine {
+    text-decoration: none;
+}
+
+.addMargin-top {
+    margin-top: 7rem;
+}

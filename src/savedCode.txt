@@ -1,0 +1,24 @@
+Data Map - 
+
+<tr>
+                  <td> <select name="Main Email" id="Main Email">
+                    <option value="">Work Email</option>
+                    <option value="">School Email</option>
+                    <option value="">Marketing/Spam Email</option>
+                    </select> 
+                  </td>
+                  <td><Link to='/breached-data'>{data.email}</Link></td>
+                </tr>
+                <tr> 
+                  <td> <select name="Main Email" id="Main Email">
+                    <option value="">Work Email</option>
+                    <option value="">School Email</option>
+                    <option value="">Marketing/Spam Email</option>
+                    </select>
+                  </td>
+                  <td><Link to='/breached-data' ref={inputRef}>{location.state.email}</Link></td>
+                </tr>
+                
+
+
+----------------------------------------------

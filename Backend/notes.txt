@@ -4,4 +4,14 @@ npm i express mongoose mongodb cors
 
 create index file - touch index.js 
 
-nodemon index.js (in this case nodemon mongo.js)
+nodemon index.js
+
+
+async function showPassword() {
+        var x = document.getElementById("myInput");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
