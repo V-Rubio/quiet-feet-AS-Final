@@ -8,6 +8,7 @@ import TBD from "./components/TBD";
 import Contacts from "./components/Contacts";
 import NoPage from "./components/No-Page";
 import BreachedData from "./components/BreachedData";
+import Accounts from "./components/Accounts";
 
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -25,6 +26,7 @@ function App() {
           <Route path="/tbd" element={<TBD/>}/>
           <Route path="/tech-contacts" element={<Contacts/>}/>
           <Route path="/breached-data" element={<BreachedData/>}/>
+          <Route path="/accounts" element={<Accounts/>}/>
           <Route path="*" element={<NoPage />}/>
         </Routes>
       </Router>
