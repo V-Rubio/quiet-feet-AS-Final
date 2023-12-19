@@ -46,18 +46,18 @@ module.exports = collection;
 const digitalIdentitySchema = new mongoose.Schema({
   email:{
     type: [String],
-    default: undefined
+    default: undefined, 
+    account:{
+      type: [String],
+      default: undefined
+    },
+    accountDescription: {
+      type: [String],
+      default: undefined
+    },
   }
   ,
   description: {
-    type: [String],
-    default: undefined
-  },
-  account:{
-    type: [String],
-    default: undefined
-  },
-  accountDescription: {
     type: [String],
     default: undefined
   },

@@ -203,7 +203,7 @@ function Home() {
                 <tr key={index}>
                   <td>{data[index][index][1]} </td>
                   <td>
-                    <Link to="/accounts" state={{ name: location.state.firstName, email:location.state.email }}>
+                    <Link to="/accounts" state={{ name: location.state.firstName, email: location.state.email, subEmail: data[index][index][0] }}>
                       {/* onClick={sendUserInfo} */}
                       {data[index][index][0]}
                     </Link>
