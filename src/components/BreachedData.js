@@ -2,7 +2,7 @@ import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
 import { backendURL } from "../config";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Table from "react-bootstrap/Table";
 import "../Styles/breachedData.css";
 
@@ -12,6 +12,7 @@ const BreachedData = () => {
   var email = "vi.rubioo@gmail.com";
   const key = "2dde7d1c7206459381b662c456b7fa72";
   const [data, setData] = useState([]);
+  const location = useLocation();
 
   // Currently Not Working
   axios
@@ -57,14 +58,34 @@ const BreachedData = () => {
           Quiet Feet
         </Link>
       </div>
+      <div className="hugeMarginLeft">
+                  {" "}
+                  <h4>Hello {location.state.name}</h4>
+                  <div className="normalFont blackLink">
+                    <Link to="/login">Sign Out</Link>
+                  </div>
+      </div>
+      
       <div className="container1">
         <h1 className="smallMarginTop addUniformMargin" id="breachedDataTitle">
           Breached Data
         </h1>
+        
+
 
         {/* Table with Breach Data */}
         <Table striped bordered hover>
           <thead>
+            <tr>
+              <th>Email: </th>
+              <th>
+              <div>{location.state.subEmail}</div>
+              </th>
+              <th></th>
+              <th></th>
+              <th></th>
+
+            </tr>
             <tr>
               <th>Title</th>
               <th>Domain</th>

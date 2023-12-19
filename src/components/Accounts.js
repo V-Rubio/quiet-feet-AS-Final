@@ -127,7 +127,7 @@ function Accounts(props) {
                         
                     </div>
                     <div className="dashboardLinks blackLink"> 
-                        <Link to="/breached-data">Breached Data</Link>
+                        <Link to="/breached-data" state={{ name: location.state.name, email: location.state.email, subEmail: location.state.subEmail, acctDesc: location.state.acctDesc }}>Breached Data</Link>
                         
                     </div>
 
