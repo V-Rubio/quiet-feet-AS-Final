@@ -182,6 +182,8 @@ app.post("/addEmail", async (req, res) => {
     
   }
 });
+
+// Not Working 
 app.post("/addAccount", async (req, res) => {
   const {userEmail, subEmail, account, description } = req.body;
 
@@ -199,6 +201,7 @@ app.post("/addAccount", async (req, res) => {
 
     console.log(data)
 
+    // Reaches Success, but does not push data to database
     if (checkID){
       try {
         const check = await diCollection.findOne({ email: subEmail });
@@ -212,8 +215,11 @@ app.post("/addAccount", async (req, res) => {
             { _id: id, email: subEmail },
             {
               $push: {
-                "account": account, 
-                "accountDescription": description
+                email:{
+                  "account": account, 
+                 "accountDescription": description
+                }
+                
                 }
             }
          )
@@ -233,9 +239,6 @@ app.post("/addAccount", async (req, res) => {
   }
 });
 
-
-
-// /getEmails
 
 app.get("/getEmails", cors(), async (req, res) => {
   // console.log(req.query.id);
@@ -257,6 +260,8 @@ app.get("/getEmails", cors(), async (req, res) => {
     res.json("fail");
   }
 });
+
+// Not Working
 app.get("/getAccounts", cors(), async (req, res) => {
   // console.log(req.query.id);
   const email = req.query.email;
