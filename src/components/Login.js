@@ -82,9 +82,9 @@ function Login() {
         </div>
       </div>
       <div className="signInForm">
-        <div className="">
+        <div className="smallMarginTop">
           <div id="siText">
-            <label> Sign In</label>
+            <h1> Sign In</h1>
           </div>
           <div>
             <label>Monitor Data Breaches, Sign In Activity, and More!</label>
@@ -93,7 +93,7 @@ function Login() {
             <div className="leftAlignLabels">
               {/* Sign In Form */}
               <div className="login">
-                <form action="POST">
+                <form action="POST" className="createColumn">
                   <input
                     type="email"
                     onChange={(e) => {
@@ -102,7 +102,6 @@ function Login() {
                     placeholder="Email"
                   />
                   <input
-                    className="smallMarginLeft"
                     type="password"
                     id="password"
                     onChange={(e) => {
@@ -111,14 +110,14 @@ function Login() {
                     placeholder="Password"
                   />
                   {/* Checkbox shows password that was typed */}
-                  <input
+                  <div><input
                     type="checkbox"
-                    className="smallMarginLeft"
+                    className="smallMarginLeft smallMarginTop"
                     onChange={(e) => {
                       showPassword();
                     }}
                   />{" "}
-                  Show Password
+                  Show Password</div>
                   <Button
                     type="submit"
                     className="smallMarginTop smallMarginBottom"
