@@ -7,6 +7,8 @@ import Table from "react-bootstrap/Table";
 import "../Styles/home.css";
 import "../App.css";
 import Button from "react-bootstrap/Button";
+import Accounts from './Accounts.js';
+
 
 function Home() {
   const location = useLocation();
@@ -17,7 +19,6 @@ function Home() {
   const [data, setData] = useState([]);
 
   var fetchData = async () => {
-    // var userEmail = inputRef.current.innerHTML;
     await axios
       .get(backendURL + "/getEmails", {
         params: {
@@ -25,8 +26,6 @@ function Home() {
         },
       })
       .then((res) => {
-        // var userID = res.data.id;
-        // var data = res.data;
         var dataLength = res.data.email.length;
         var emails = res.data.email;
         var descriptions = res.data.description;
@@ -70,9 +69,10 @@ function Home() {
   async function sendUserInfo(e) {
     e.preventDefault();
 
-    var email = location.state.email;
-    var firstName = location.state.firstName;
+    
     // history("/accounts", { state: { firstName: firstName, email: email } });
+    
+    window.location = '/accounts';
   }
 
   async function Submit(e) {
@@ -203,7 +203,8 @@ function Home() {
                 <tr key={index}>
                   <td>{data[index][index][1]} </td>
                   <td>
-                    <Link to="/breached-data">
+                    <Link to="/accounts" state={{ name: location.state.firstName, email:location.state.email }}>
+                      {/* onClick={sendUserInfo} */}
                       {data[index][index][0]}
                     </Link>
                   </td>
