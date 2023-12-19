@@ -183,12 +183,13 @@ app.post("/addEmail", async (req, res) => {
   }
 });
 app.post("/addAccount", async (req, res) => {
-  const { userEmail, account, description } = req.body;
+  const {userEmail, subEmail, account, description } = req.body;
 
   
   try {
     checkID = await collection.findOne({email: userEmail});
     const id = checkID.id;
+    
 
     const data = {
       _id: id,
@@ -196,17 +197,19 @@ app.post("/addAccount", async (req, res) => {
       accountDescription: description,
     };
 
+    console.log(data)
+
     if (checkID){
       try {
-        const check = await diCollection.findOne({ email: email });
+        const check = await diCollection.findOne({ email: subEmail });
         const checkIDDI = await diCollection.findOne({ _id: id });
+        console.log(check)
+        console.log(checkIDDI)
     
-        if (check) {
-          res.json("exist");
-        } else if (!check && checkIDDI){
+        if (checkIDDI){
           res.json("updated")
           await diCollection.updateOne(
-            { _id: id },
+            { _id: id, email: subEmail },
             {
               $push: {
                 "account": account, 

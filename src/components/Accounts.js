@@ -70,11 +70,12 @@ function Accounts(props) {
 
     async function Submit(e){
       var userEmail = location.state.email;
+      var subEmail = location.state.subEmail;
       
       e.preventDefault();
           try{
               await axios.post(backendURL + "/addAccount",{
-                  userEmail, account, description
+                  userEmail, subEmail, account, description
               })
               .then(res=>{
                   if(res.data==="exist"){
