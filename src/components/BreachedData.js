@@ -79,10 +79,10 @@ const BreachedData = () => {
             <tr>
               <th>Email: </th>
               <th>
-              <div>{location.state.subEmail}</div>
+              <div className="blackLink"><Link to={'/accounts'} state={{ name: location.state.firstName, email: location.state.email, subEmail: location.state.subEmail, acctDesc: location.state.acctDesc }}>{location.state.subEmail}</Link></div>
               </th>
               <th></th>
-              <th></th>
+              <th className="blackLink"><Link to={'/home'} state={{firstName: location.state.name, email: location.state.email}}>Return Home</Link></th>
               <th></th>
 
             </tr>
