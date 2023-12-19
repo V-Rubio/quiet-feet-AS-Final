@@ -157,7 +157,11 @@ function Accounts(props) {
       {/* <Link to='/breached-data'> <h1>{location.state.id}</h1></Link> */}
       <Table striped bordered hover> 
             <thead>
-                <tr className="boldFont"><h3 style={{textAlign: 'center'}}>{location.state.subEmail}</h3></tr>
+                <tr className="boldFont">
+                    <th><h3>{location.state.acctDesc}</h3></th>
+                    <th><h3 style={{textAlign: 'center'}}>{location.state.subEmail}</h3></th>
+                
+                </tr>
                 <tr>
                     <th>Accounts</th>
                     <th>Description</th>
