@@ -132,7 +132,7 @@ function Accounts(props) {
                     </div>
 
                     <div className="dashboardLinks blackLink" id="contactsDL"> 
-                        <Link to="/tech-contacts">Contacts</Link>
+                        <Link to="/tech-contacts" state={{name:location.state.name, email: location.state.email}}>Contacts</Link>
                 
                     </div>
             </div>  

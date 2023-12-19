@@ -1,5 +1,5 @@
 // import '../Contacts.css'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import contactInfo from "/Users/vi.rubio/Desktop/Final Quiet Feet/quiet-feet/src/Quiet Feet Contacts.csv";
 import * as Papa from "papaparse";
 import { useEffect, useState } from "react";
@@ -12,6 +12,7 @@ const Contacts = () => {
   var [results, setSearchResults] = useState([]);
   const [data, setData] = useState([]);
   const [searchString, setSearch] = useState("");
+  const location = useLocation();
 
   // Searching Strings and Numbers against Contacts we have stored --> then displaying them
   function search(e) {
@@ -151,6 +152,16 @@ const Contacts = () => {
           <div results={results}>
             <Table striped bordered hover>
               <thead>
+              <tr>
+              <th> </th>
+              <th>
+              <div></div>
+              </th>
+              <th></th>
+              <th className="blackLink"><Link to={'/home'} state={{firstName: location.state.name, email: location.state.email}}>Return Home</Link></th>
+              <th></th>
+
+            </tr>
                 <tr>
                   <th>Company</th>
                   <th>Number</th>

@@ -144,7 +144,7 @@ function Home() {
           </div>
 
           <div className="dashboardLinks blackLink" id="contactsDL">
-            <Link to="/tech-contacts">Contacts</Link>
+            <Link to="/tech-contacts" state={{name:location.state.firstName, email: location.state.email}}>Contacts</Link>
           </div>
         </div>
 
