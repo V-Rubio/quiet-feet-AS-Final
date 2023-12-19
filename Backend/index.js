@@ -53,6 +53,14 @@ const digitalIdentitySchema = new mongoose.Schema({
     type: [String],
     default: undefined
   },
+  account:{
+    type: [String],
+    default: undefined
+  },
+  accountDescription: {
+    type: [String],
+    default: undefined
+  },
   phoneNumber: {
     type: String,
   },
@@ -174,6 +182,53 @@ app.post("/addEmail", async (req, res) => {
     
   }
 });
+app.post("/addAccount", async (req, res) => {
+  const { userEmail, account, description } = req.body;
+
+  
+  try {
+    checkID = await collection.findOne({email: userEmail});
+    const id = checkID.id;
+
+    const data = {
+      _id: id,
+      account: account,
+      accountDescription: description,
+    };
+
+    if (checkID){
+      try {
+        const check = await diCollection.findOne({ email: email });
+        const checkIDDI = await diCollection.findOne({ _id: id });
+    
+        if (check) {
+          res.json("exist");
+        } else if (!check && checkIDDI){
+          res.json("updated")
+          await diCollection.updateOne(
+            { _id: id },
+            {
+              $push: {
+                "account": account, 
+                "accountDescription": description
+                }
+            }
+         )
+        }else {
+          res.json("notexist");
+          await diCollection.insertMany([data]);
+        }
+      }catch (e) {
+        // res.json("fail");
+      }
+    } else {
+      res.json("notexist")
+    }
+  }catch (e) {
+    res.json("fail");
+    
+  }
+});
 
 
 
@@ -191,6 +246,26 @@ app.get("/getEmails", cors(), async (req, res) => {
       // res.json("exist");
       // data,
       res.send({email: dataDI.email, description: dataDI.description});
+    } else {
+      res.json("notexist");
+      // res.json("Error Getting Emails - Does not Exist")
+    }
+  } catch (e) {
+    res.json("fail");
+  }
+});
+app.get("/getAccounts", cors(), async (req, res) => {
+  // console.log(req.query.id);
+  const email = req.query.email;
+  // var data = await diCollection.findById(req.query.id).exec();
+
+  try {
+    var userInfo = await collection.findOne({email: email});
+    if (userInfo) {
+      var dataDI = await diCollection.findOne({_id: userInfo._id});
+      // res.json("exist");
+      // data,
+      res.send({account: dataDI.account, description: dataDI.accountDescription});
     } else {
       res.json("notexist");
       // res.json("Error Getting Emails - Does not Exist")

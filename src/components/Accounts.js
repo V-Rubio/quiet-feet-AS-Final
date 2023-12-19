@@ -13,33 +13,32 @@ function Accounts(props) {
   var inputRef = useRef(null);
   
   
-  const [email,setLoggedEmail]=useState('');
+  const [account,setLoggedAccount]=useState('');
   const [description,setLoggedDescription]=useState('');
   const [data, setData] = useState([]);
 
 
 //   var fetchData = async () => {
-//     await axios.get(backendURL + '/getEmails', {
+//     await axios.get(backendURL + '/getAccounts', {
 //       params: {
 //         email: location.state.email
 //       }
 //     }).then(res => {
-//       // var userID = res.data.id;
-//       // var data = res.data;
-//       var dataLength = res.data.email.length;
-//       var emails = res.data.email;
+//         console.log(res);
+//       var dataLength = res.data.account.length;
+//       var accounts = res.data.account;
 //       var descriptions = res.data.description;
 //       var data = [];
-//       var email;
+//       var account;
 //       var description;
 //       for(var i = 0 ; i<= dataLength; i++){
 //         if (dataLength == 0){
-//             email = res.data.email;
+//             account = res.data.account;
 //             description = res.data.description;
       
 //             data.push({
 //               [i]: {
-//                 0: email, 
+//                 0: account, 
 //                 1: description
 //               }
 //           });
@@ -47,12 +46,12 @@ function Accounts(props) {
 //           if (i == dataLength){
 //             break;
 //           } else {
-//             email = emails[i];
+//             account = accounts[i];
 //             description = descriptions[i];
     
 //             data.push({
 //               [i]: {
-//                 0: email, 
+//                 0: account, 
 //                 1: description
 //               }
 //           });
@@ -74,23 +73,23 @@ function Accounts(props) {
       
       e.preventDefault();
           try{
-              await axios.post(backendURL + "/addEmail",{
-                  userEmail, email, description
+              await axios.post(backendURL + "/addAccount",{
+                  userEmail, account, description
               })
               .then(res=>{
                   if(res.data==="exist"){
-                      alert("Email already in store")
+                      alert("Account already in store")
                   }
                   else if(res.data==="notexist" || res.data ==="updated"){
                       alert("Data Added")
-                      var email = document.getElementById("email");
+                      var account = document.getElementById("account");
                       var description = document.getElementById("description");
-                      email.value = '';
+                      account.value = '';
                       description.value ='';
 
                       // Axios Get an array of all listed emails and then display them 
 
-                      axios.get(backendURL + '/getEmails');
+                      axios.get(backendURL + '/getAccounts');
                       window.location.reload();
                   }
               })
@@ -144,7 +143,7 @@ function Accounts(props) {
         <div className="createRow alignCenter"> 
           <div>
             <label className="boldFont">Add an Account : </label>
-            <input type="email" className='smallMarginLeft' id='email' onChange={(e) => { setLoggedEmail(e.target.value) }} placeholder="Type an Email"  />
+            <input type="text" className='smallMarginLeft' id='account' onChange={(e) => { setLoggedAccount(e.target.value) }} placeholder="Type an Account"  />
             </div>
           <div>
             <div className="smallMarginLeft">
