@@ -1,6 +1,6 @@
 // import '../Contacts.css'
 import { Link, useLocation } from "react-router-dom";
-import contactInfo from "/Users/vi.rubio/Desktop/Final Quiet Feet/quiet-feet/src/Quiet Feet Contacts.csv";
+import contactInfo from "../Quiet Feet Contacts.csv";
 import * as Papa from "papaparse";
 import { useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
